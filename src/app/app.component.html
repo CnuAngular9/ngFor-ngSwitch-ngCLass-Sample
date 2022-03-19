@@ -1,0 +1,53 @@
+<hello name="{{ name }}"></hello>
+<h2>
+  <i><u>___*ngSwitch Sample___</u> </i>
+</h2>
+<div>
+  Select Month number to display Month Name:
+  <input type="number" [(ngModel)]="month" style="width:50px" />
+  <b>
+    <div [ngSwitch]="month" style="padding:20px;font-size:30px">
+      <div *ngSwitchCase="1">Jan</div>
+      <div *ngSwitchCase="2">Feb</div>
+      <div *ngSwitchCase="3">Mar</div>
+      <div *ngSwitchDefault>Invalid Month Number</div>
+    </div>
+  </b>
+</div>
+<p>======================================================================</p>
+<h2>
+  <i><u>___*ngFor & *ngStyle Sample___</u> </i>
+</h2>
+<div style="border:2px solid;border-color:purple;">
+  <ul>
+    <li *ngFor="let clr of AllColors" [ngStyle]="{ color: clr }">{{ clr }}</li>
+  </ul>
+</div>
+<p>======================================================================</p>
+<h2>
+  <i><u>___*ngClass (CSS)___</u> </i>
+</h2>
+<div [ngClass]="'bgcolor borderStyle tcolor font-Style'">
+  Sample text to verify multiple CSS classes ( seperated by <b>SPACE</b>)
+</div>
+<p></p>
+<div [ngClass]="['bgcolor', 'borderStyle', 'font-Style']">
+  Sample text to verify multiple CSS classes ( Using <b>Array</b>)
+</div>
+
+<p>======================================================================</p>
+<h2>
+  <i><u>___*ngClass (CSS) - Applying styles based on Flag ___</u> </i>
+</h2>
+<input type="checkbox" [(ngModel)]="isSelectedStyle" /> Check/Uncheck this to
+change Style of below DIV <br />
+<br />
+<div
+  [ngClass]="{
+    bgcolor: isSelectedStyle,
+    borderStyle: !isSelectedStyle,
+    'font-Style': !isSelectedStyle
+  }"
+>
+  Styles are getting applied based on FLAG ( seperated by <b>SPACE</b>)
+</div>
